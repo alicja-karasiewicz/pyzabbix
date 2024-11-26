@@ -216,7 +216,7 @@ class ZabbixAPI:
         resp = self.session.post(
             self.url,
             json=payload,
-            headers=headers,
+            headers={**self.session.headers, **headers},
             timeout=self.timeout,
         )
         logger.debug("Response Code: %s", resp.status_code)
